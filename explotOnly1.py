@@ -17,7 +17,7 @@ def exploitOnly()
   if hap1 > hap2 and hap1 > hap3:
     for i in range(296):
       happinesstemp += random.normalvariate(h1, std1)
-    happiness = hapinestemp = hap2 + hap3 + hap1
-    return hapiness
+    happiness = happinesstemp = hap2 + hap3 + hap1
+    return happiness
   
   
