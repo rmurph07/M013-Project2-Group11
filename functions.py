@@ -10,6 +10,6 @@ def exploreonly() -> int:
         result += c1
         result += c2
         result += c3
-    return result
+    return int(result)
 
 print(exploreonly())
