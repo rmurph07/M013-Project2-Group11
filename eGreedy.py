@@ -44,3 +44,32 @@ def eGreedy(e: int):
             #otherwise choose the best one
 
     return sum(caf1) + sum(caf2) + sum(caf3)
+
+def Simulation(t:int, e:int):
+    c1 = 9
+    c2 = 7
+    c3 = 11
+    evalue = (e/100)
+    oh = 3300
+    exploreexpected = 100*c1 + 100*c2 + 100*c3
+    exploitexpected = c1 + c2 + c3 + 297*c3
+    egreedyexpected = (1-evalue)*300*c3 + (evalue/3)*300*c1 + (evalue/3)*300*c2 + (evalue/3)*300*c3
+    expexploreregret = oh - exploreexpected
+    expexploitregret = oh - exploitexpected
+    expegreedyregret = oh - egreedyexpected
+    for i in range(t-1):
+        exploretotal += exploreOnly()
+        exploittotal += exploitOnly()
+        egreedytotal += eGreedy(e)
+    averageexplore = exploretotal/t
+    averageexploit = exploittotal/t
+    averageegreedy = egreedytotal/t
+    avgexploreregret = oh - averageexplore
+    avgexploitregret = oh - averageexploit
+    avgegreedyregret = oh - averageegreedy
+    print("Optimum Happiness:\nCafeteria 1: 2700\nCafeteria 2: 2100\nCafeteria 3: 3300\nOptimium: 3300\n\n")
+    print("Expected Values:\nexploitOnly: Happiness: " + str(exploitexpected) + ", Regret: " + str(expexploitregret)+"\n")
+    print("exploreOnly: Happiness: " + str(exploitexpected) + ", Regret: " + str(expexploreregret)+"\n")
+    print("eGreedy: Happiness: " + str(egreedyexpected) + ", Regret: " + str(expegreedyregret) + "\n\n")
+    print("Average Total Happiness:\nexploitOnly: " + str(averageexploit) + "\nexploreOnly: " + str(averageexplore)+ "\neGreedy: " + str(averageegreedy) + "\n\n")
+    print("Average Regret:\nexploitOnly: " + str(avgexploitregret) + "\nexploreOnly: " + str(avgexploreregret) + "\neGreedy: " + str(avgegreedyregret))
