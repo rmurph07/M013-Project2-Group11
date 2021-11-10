@@ -4,16 +4,12 @@
 
 import random
 
-c1 = random.normalvariate(9, 3)
-c2 = random.normalvariate(7, 5)
-c3 = random.normalvariate(11, 7)
-
 def exploreOnly() -> int:
     result = 0
     for i in range(100):
-        result += c1
-        result += c2
-        result += c3
+        result += random.normalvariate(9, 3)
+        result += random.normalvariate(7, 5)
+        result += random.normalvariate(11, 7)
     return int(result)
 
 def exploitOnly():
@@ -125,4 +121,3 @@ def Simulation(t:int, e:int):
     print("Average Total Happiness:\nexploitOnly: " + str(averageexploit) + "\nexploreOnly: " + str(averageexplore)+ "\neGreedy: " + str(averageegreedy) + "\n")
     print("Average Regret:\nexploitOnly: " + str(avgexploitregret) + "\nexploreOnly: " + str(avgexploreregret) + "\neGreedy: " + str(avgegreedyregret))
 
-Simulation(1000,12)
